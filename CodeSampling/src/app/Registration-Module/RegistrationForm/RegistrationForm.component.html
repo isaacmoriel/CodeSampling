@@ -61,7 +61,8 @@
         Password is required
       </mat-error>
       <mat-error *ngIf="PasswordControl.hasError('weakPassword')">
-        Must include a number and a letter
+        Must include a number, an upper, lower case letter <br>
+        and a special characters !@#$%^&*=_+? 
       </mat-error>
       <mat-error *ngIf="PasswordControl.hasError('minlength')">
         Should be 10 characters or more
