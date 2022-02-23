@@ -1,3 +1,67 @@
-<p>
-  RegistrationForm works!
-</p>
+
+
+
+<mat-card style="background-color: darkolivegreen;">
+  <mat-card-title> Registration</mat-card-title>
+  
+  <form autocomplete="off" [formGroup]="RegistrationForm">
+    <mat-form-field>
+    <mat-label> First Name</mat-label>
+    <input matInput type="text" formControlName="FirstName" >
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+      <mat-label>Last Name</mat-label>
+      <input matInput type="text" formControlName="LastName">
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+      <mat-label>Email Address</mat-label>
+      <input matInput type="text" formControlName="EmailAddress">
+      
+      <mat-error *ngIf="EmailAddressControl.hasError('required')">
+        Email is required
+      </mat-error>
+      <mat-error *ngIf="EmailAddressControl.hasError('email')">
+        Invalid email format
+      </mat-error>
+      
+    </mat-form-field>
+    
+    <br>
+    <mat-form-field>
+      <mat-label>User Name</mat-label>
+      <input matInput type="text" formControlName="UserName">      
+      <mat-error *ngIf="UserNameControl.hasError('minlength')">
+        Should be 8 characters or more
+      </mat-error>
+      <mat-error *ngIf="UserNameControl.hasError('missingAlphaNumeric')">
+        Must include a number and a letter
+      </mat-error>
+      <mat-error *ngIf="UserNameControl.hasError('whiteSpace')">
+       Must not inlucde space
+      </mat-error>
+    </mat-form-field>
+    
+    
+    <br>
+    <mat-form-field>
+      <mat-label>Password</mat-label>
+      <input matInput type="password" formControlName="Password">  
+      <mat-error *ngIf="PasswordControl.hasError('weakPassword')">
+        Must include a number and a letter
+      </mat-error>
+      <mat-error *ngIf="PasswordControl.hasError('minlength')">
+        Should be 10 characters or more
+      </mat-error>
+    </mat-form-field>
+    
+    <br>
+    <br>
+    <button mat-raised-button color="primary" (click)="RegistrationForm.reset()" >clear</button> &nbsp;
+    <button mat-raised-button  color="accent" [disabled]="RegistrationForm.invalid">Submit</button>
+
+    
+  </form>
+  
+</mat-card>
