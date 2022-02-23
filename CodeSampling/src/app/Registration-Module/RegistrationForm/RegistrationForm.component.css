@@ -1,0 +1,25 @@
+
+
+.mat-form-field{
+    width: 80%;
+}
+
+.formStyle{
+    text-align: center;
+}
+
+
+
+@media screen and (max-width: 900px) {
+    .mat-card{
+         width:90%;
+    }
+  }
+  
+ 
+
+    @media screen and (min-width: 1024px) {
+        .mat-card{
+             width:30%;
+        }
+  }

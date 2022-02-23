@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormControl, FormGroup, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
-
+import {MatSnackBar} from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
+import { delay } from 'rxjs';
 
 
 @Component({
@@ -20,7 +22,7 @@ export class RegistrationFormComponent implements OnInit {
   PasswordControl:FormControl = new FormControl('',[Validators.required,Validators.minLength(10),this.PasswordValidator()])
   RegistrationForm:FormGroup=new FormGroup({});
   
-  constructor() { }
+  constructor(private snack: MatSnackBar, private router: Router) { }
 
   ngOnInit() {
       this.RegistrationForm = new FormGroup({
@@ -31,11 +33,14 @@ export class RegistrationFormComponent implements OnInit {
         Password:this.PasswordControl
     
       });
-      // console.log(this.RegistrationForm)
+      
   }
 
-  show(){
-    
+  submit(){
+    this.snack.open('You have been successfully registered, you will be routed to login','',{duration:4500});
+    setTimeout(() =>{
+      this.router.navigateByUrl('/login')
+    },5000 )
   }
 
     UserNameValidator(): ValidatorFn {
