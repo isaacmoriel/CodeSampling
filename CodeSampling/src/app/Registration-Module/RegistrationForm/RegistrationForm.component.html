@@ -5,7 +5,7 @@
   <mat-card-title > Registration</mat-card-title>
   
   <form autocomplete="off" [formGroup]="RegistrationForm" class="formStyle">
-    <mat-form-field >
+    <mat-form-field color="accent" >
     <mat-label> First Name</mat-label>
     <input matInput type="text" formControlName="FirstName" >
     <mat-error *ngIf="FirstnameControl.hasError('required')">
@@ -13,7 +13,7 @@
     </mat-error>
     </mat-form-field>
     <br>
-    <mat-form-field>
+    <mat-form-field color="accent">
       <mat-label>Last Name</mat-label>
       <input matInput type="text" formControlName="LastName">
       <mat-error *ngIf="LastnameControl.hasError('required')">
@@ -21,7 +21,7 @@
       </mat-error>
     </mat-form-field>
     <br>
-    <mat-form-field>
+    <mat-form-field color="accent">
       <mat-label>Email Address</mat-label>
       <input matInput type="text" formControlName="EmailAddress">
       
@@ -35,9 +35,9 @@
     </mat-form-field>
     
     <br>
-    <mat-form-field>
-      <mat-label>User Name</mat-label>
-      <input matInput type="text" formControlName="UserName">    
+    <mat-form-field color="accent">
+      <mat-label >User Name</mat-label>
+      <input matInput type="text"  formControlName="UserName">    
       <mat-error *ngIf="UserNameControl.hasError('required')">
         User Name is required
       </mat-error>  
@@ -54,7 +54,7 @@
     
     
     <br>
-    <mat-form-field>
+    <mat-form-field color="accent">
       <mat-label>Password</mat-label>
       <input matInput type="password" formControlName="Password">  
       <mat-error *ngIf="PasswordControl.hasError('required')">
